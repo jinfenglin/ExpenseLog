@@ -2,34 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:weightSum="2"
+    android:orientation="horizontal">
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="fill_parent">
         <TextView
             android:id="@+id/Date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent">
         <TextView
             android:id="@+id/Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent">
         <TextView
             android:id="@+id/Note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="delete"
+            android:id="@+id/entry_btn"/>
         </LinearLayout>
 </LinearLayout>
 

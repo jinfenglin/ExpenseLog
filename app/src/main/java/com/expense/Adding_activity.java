@@ -2,6 +2,7 @@ package com.expense;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 
 public class Adding_activity extends Activity implements View.OnClickListener {
 
+    ExpenseDB dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class Adding_activity extends Activity implements View.OnClickListener {
         cancel_button=(Button)findViewById(R.id.cancel_button);
         add_button.setOnClickListener(this);
         cancel_button.setOnClickListener(this);
+        dbHelper= new ExpenseDB(this);
 
     }
 
@@ -56,6 +59,8 @@ public class Adding_activity extends Activity implements View.OnClickListener {
         String desc_text=desc_input.getText().toString();
         String note_text=note_input.getText().toString();
         if(view.getId()==R.id.add_button && !desc_text.isEmpty() & !note_text.isEmpty() ){
+
+            dbHelper.addExpense(new ExpenseLogEntryData(desc_text,note_text));
             Intent returnIntent = new Intent();
             returnIntent.putExtra("desc",desc_text);
             returnIntent.putExtra("note",note_text);
